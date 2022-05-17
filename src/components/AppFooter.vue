@@ -45,7 +45,33 @@
       </div>
       <div class="footer__large-col"></div>
     </div>
-    <div class="footer__top container"></div>
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__sign-up">
+          <button>SIGN-UP NOW!</button>
+        </div>
+        <div class="footer__social-box">
+          <div class="follow-us">FOLLOW US</div>
+          <ul class="social-box-btn">
+            <li>
+              <a href=""
+                ><img src="../assets/img/footer-facebook.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img src="../assets/img/footer-facebook.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img src="../assets/img/footer-facebook.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </footer>
 </template>
 
@@ -100,6 +126,38 @@ export default {
     background-image: url(../assets/img/dc-logo-bg.png);
     background-repeat: no-repeat;
     background-position: center;
+  }
+  &__bottom {
+    background-color: #303030;
+    height: 150px;
+    color: white;
+    display: flex;
+    .container {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__sign-up button {
+    color: white;
+    background-color: transparent;
+    padding: 1rem;
+    border: 2px solid $brand-primary-color;
+  }
+  &__social-box {
+    display: flex;
+    align-items: center;
+    .follow-us {
+      color: $brand-primary-color;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 1rem;
+    }
+    ul {
+      display: flex;
+      li {
+        margin: 0 0.5rem;
+      }
+    }
   }
 }
 </style>
