@@ -3,45 +3,33 @@
     <div class="footer__top container">
       <div class="footer__col">
         <h3>DC COMICS</h3>
-        <ul class="link-list">
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-        </ul>
+        <AppLinks
+          v-for="(item, index) in footerLinksDcComics"
+          :key="index"
+          :linkObj="item"
+        />
         <h3>SHOP</h3>
-        <ul class="link-list">
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-        </ul>
+        <AppLinks
+          v-for="(item, index) in footerLinksShop"
+          :key="index"
+          :linkObj="item"
+        />
       </div>
       <div class="footer__col">
         <h3>DC</h3>
-        <ul class="link-list">
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-        </ul>
+        <AppLinks
+          v-for="(item, index) in footerLinksDC"
+          :key="index"
+          :linkObj="item"
+        />
       </div>
       <div class="footer__col">
         <h3>SITES</h3>
-        <ul class="link-list">
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-          <li><a href="">ciao</a></li>
-        </ul>
+        <AppLinks
+          v-for="(item, index) in footerLinksSites"
+          :key="index"
+          :linkObj="item"
+        />
       </div>
       <div class="footer__large-col"></div>
     </div>
@@ -53,20 +41,10 @@
         <div class="footer__social-box">
           <div class="follow-us">FOLLOW US</div>
           <ul class="social-box-btn">
-            <li>
+            <li v-for="(item, index) in footerSocial" :key="index">
               <a href=""
-                ><img src="../assets/img/footer-facebook.png" alt=""
-              /></a>
-            </li>
-            <li>
-              <a href=""
-                ><img src="../assets/img/footer-facebook.png" alt=""
-              /></a>
-            </li>
-            <li>
-              <a href=""
-                ><img src="../assets/img/footer-facebook.png" alt=""
-              /></a>
+                ><img :src="require(`../assets/img/${item.src}.png`)" alt="" />
+              </a>
             </li>
           </ul>
         </div>
@@ -76,15 +54,142 @@
 </template>
 
 <script>
+import AppLinks from "../components/AppLinks.vue";
 export default {
   name: "AppFooter",
+  components: {
+    AppLinks,
+  },
   data() {
     return {
-      footerLinks: [
+      footerLinksDcComics: [
         {
           url: "",
-          text: "characters",
-          value: false,
+          text: "Characters",
+        },
+        {
+          url: "",
+          text: "Comics",
+        },
+        {
+          url: "",
+          text: "Movies",
+        },
+        {
+          url: "",
+          text: "TV",
+        },
+        {
+          url: "",
+          text: "Games",
+        },
+        {
+          url: "",
+          text: "Videos",
+        },
+        {
+          url: "",
+          text: "News",
+        },
+      ],
+      footerLinksShop: [
+        {
+          url: "",
+          text: "Shop DC",
+        },
+        {
+          url: "",
+          text: "Shop DC Collectibles",
+        },
+      ],
+      footerLinksDC: [
+        {
+          url: "",
+          text: "Terms Of Use",
+        },
+        {
+          url: "",
+          text: "Privacy policy (New)",
+        },
+        {
+          url: "",
+          text: "Ad Choices",
+        },
+        {
+          url: "",
+          text: "Advertsing",
+        },
+        {
+          url: "",
+          text: "Jobs",
+        },
+        {
+          url: "",
+          text: "Subscriptions",
+        },
+        {
+          url: "",
+          text: "Talent Workshops",
+        },
+        {
+          url: "",
+          text: "CPSC Certificates",
+        },
+        {
+          url: "",
+          text: "Ratings",
+        },
+        {
+          url: "",
+          text: "Shop Help",
+        },
+        {
+          url: "",
+          text: "Contact Us",
+        },
+      ],
+      footerLinksSites: [
+        {
+          url: "",
+          text: "DC",
+        },
+        {
+          url: "",
+          text: "MAD Magazine",
+        },
+        {
+          url: "",
+          text: "DC Kids",
+        },
+        {
+          url: "",
+          text: "DC Universe",
+        },
+        {
+          url: "",
+          text: "DC Power Visa",
+        },
+      ],
+      footerSocial: [
+        {
+          name: "facebook",
+          src: "footer-facebook",
+        },
+        {
+          name: "twitter",
+          src: "footer-twitter",
+        },
+        {
+          name: "youtube",
+          src: "footer-youtube",
+        },
+        {
+          name: "pintarest",
+          src: "footer-pinterest",
+        },
+        {
+          name: "periscope",
+          src: "footer-periscope",
         },
       ],
     };
@@ -108,7 +213,7 @@ export default {
   &__col {
     h3 {
       color: white;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
     }
     .link-list {
       margin: 1rem 0;
@@ -129,7 +234,7 @@ export default {
   }
   &__bottom {
     background-color: #303030;
-    height: 150px;
+    height: 100px;
     color: white;
     display: flex;
     .container {

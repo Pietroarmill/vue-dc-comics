@@ -24,7 +24,7 @@ export default {
   text-transform: uppercase;
   font-size: 0.8rem;
   &__img {
-    height: 150px;
+    max-height: 200px;
     overflow: hidden;
     margin-bottom: 1rem;
     img {
